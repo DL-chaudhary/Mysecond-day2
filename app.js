@@ -1,22 +1,37 @@
 const express=require('express')
 const app=express()
+app.set("view engine",'ejs')
 
 app.get('/',(req,res)=>{
-    res.send('any kaam ji sir');
+    res.render('home.ejs');
 
 })
 app.get('/about',(req,res)=>{
-    res.send('this is about page');
+    const data={
+        name:'kamal',
+        countary:'nepal'
+    }
+    
+        const nama={
+            age:25,
+            collage:'softech'
+        }
+    
+    res.render('test/tess.ejs',{
+        haha:data,
+        hihi:nama
+    });
+
 
 })
 app.get('/home',(req,res)=>{
-    res.send("this home page to");
+    res.render("page.ejs");
 
 })
 
 
 
-
+app.use(express,static(public/))
 
 app.listen(3000,()=>{
     console.log('hellow project suru vyo');
